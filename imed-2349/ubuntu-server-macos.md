@@ -128,6 +128,22 @@ By default, all new Ubuntu Server installations have the same hostname, ubuntu. 
 
 - Run the command `hostnamectl set-hostname raspberrypi-WDD-jdoe` (where j is the initial of your first name and doe is your last name; so for example my hostname would be `raspberrypi-WDD-dtrower`).  This step requires authentication.  Enter your password for the Ubuntu user and hit enter.  You should see the message `==== AUTHENTICATION COMPLETE ====`.
 
+## Get IP Address
+
+Next, we need to get the IP address for our Raspberry Pi so we can remote into the Raspberry Pi.
+
+- Before you can get the IP address, you need to install net-tools.  To do this, run the command `sudo apt install net-tools`.
+
+- Once it has installed, type the command `ifconfig` and hit Enter.
+
+- This will print a bunch of information to the command line.  To find your IP address, look for the inet address under eth0.  Make sure you write this IP address down because you will need it to connect to the Raspberry Pi from another computer.
+
+## Verify SSH Status
+
+In this class, after the initial setup, we are going to remote into our Raspberry Pi.  You will only be able to remote into the Raspberry Pi while you are on the same network as the Raspberry Pi.
+
+- To verify that the SSH server is running, run the command `sudo systemctl status ssh`.  You should see in the output the message `Active: active (running)`.
+
 ## Install Fail2Ban
 
 Fail2Ban blocks suspicious requests that come from the Internet.  It will block the IP address if there are too many attempts to guess the password.
@@ -192,18 +208,4 @@ Swap is space on a disk that the OS can use when the amount of physical RAM memo
 
   `              total        used        free      shared  buff/cache   available`  
   `Mem:           488M        158M         83M        2.3M        246M        217M`  
-  `Swap:          2.0G        506M        517M`
-
-## Install an Ubuntu GUI Desktop
-
-By default, the Ubuntu Server is a command line only interface.  However, we can install a GUI desktop to use.  
-
-- To do this, from the Command Line on Ubuntu run the following command: `sudo apt-get install xubuntu-desktop`
-
-- You will see a wall of text scroll by on the screen.  When it is finished, it will tell you how much additional space will be taken up by the install and will ask if you want to continue.  Type `Y` and hit Enter.
-
-- This is going to take an extremely long time to run. Early on in the installation process there may be a couple of prompts that you have to respond to, but for the most part, this process just needs time to run.  I would work on other work for this class, while it is running.
-
-- Once it has finished installing, you will need to reboot the Ubuntu Server by running the command `sudo shutdown –r now`
-
-- When Ubuntu Server finished rebooting, it will bootup to the login screen for the Xubuntu GUI desktop.  Enter your password and then hit Enter.
+  `Swap:          2.0G        506M        517M                                    `
