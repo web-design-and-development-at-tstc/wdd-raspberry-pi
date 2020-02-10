@@ -10,7 +10,7 @@ If you are doing this using the Mac’s and the Raspberry Pis in the lab, you wi
 
 - Visit the [Install Ubuntu Server on Raspberry Pi 2, 3 or 4 page](https://ubuntu.com/download/iot/raspberry-pi-2-3) 
 
-- Scroll down and click on the button titled “64-bit for Raspberry Pi 3 and 4”.
+- Scroll down and under the Raspberry Pi 3 model, click on the button titled “Download 64-bit” for Ubuntu 19.10.  If you purchased your own Rasperry Pi and you chose to purchase a different model (for example the Raspberry Pi 4 is the latest model), then you would want to download the image that matches your model.  For the department's Raspberry Pis, we have the model 3 B+, thus we want the image for the Raspberry Pi 3.
 
 - Make sure you download this to your Downloads folder on the Mac.
 
@@ -30,7 +30,7 @@ If you are doing this using the Mac’s and the Raspberry Pis in the lab, you wi
 
   - The first is to install the Command Line Tools.  To do this, Launch the Terminal then run the command `xcode-select --install`
 
-  - This will launch a software update popup window and you will need to click Install.  Once it has finished, click Done.
+  - This will launch a software update popup window and you will need to click Install.  Then you will need to accept the license agreement by clicking Agree.  Once it has finished, click Done.
 
   - Next, you are going to install Homebrew.  Enter the command `/usr/bin/ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”`
 
@@ -48,7 +48,7 @@ If you are doing this using the Mac’s and the Raspberry Pis in the lab, you wi
 
 - If successful, you’ll see a message similar to `Unmount of all volumes on disk2` was successful
 
-- Next, we are going to copy the image to the microSD card.  To do this you either have to be logged in as an administrator or be using a user account that has sudo rights.  If you are using an SD card that is not 32GB, then you need to run the command: `sudo sh -c ‘xzcat ~/Downloads/ubuntu-19.10-preinstalled-server-arm64+raspi3.img.xz | sudo dd of=/dev/disk2 bs=32m’`
+- Next, we are going to copy the image to the microSD card.  To do this you either have to be logged in as an administrator or be using a user account that has sudo rights.  If you are using an SD card that is not 32GB, then you need to run the command: `sudo sh -c ‘xzcat ~/Downloads/ubuntu-19.10.1-preinstalled-server-arm64+raspi3.img.xz | sudo dd of=/dev/disk2 bs=32m’`
 
 - It will ask for the administrator password.  Enter this and hit enter.
 
@@ -110,17 +110,17 @@ Before moving on with updating and installing new packages, we need to make sure
 
 - After it has run, type `sudo apt-get dist-upgrade -y` and hit Enter.
 
-- Next, we are going to set it, so our date and time are synchronized as opposed to having to manually set it in the future.  To do this, run the command `sudo apt install chrony` When it is finished, it will tell you how much additional space will be taken up by the install and will ask if you want to continue.  Type `Y` and hit Enter.
+- Next, we are going to set it, so our date and time are synchronized as opposed to having to manually set it in the future.  To do this, run the command `sudo apt install chrony`.
 
 - After it has installed, run the command `systemctl status chronyd`  You should see output that shows that it is active. 
 
-- To enable chrony to run upon boot, run the command `systemctl enable chrony`
+- To enable chrony to run upon boot, run the command `systemctl enable chrony`.
+
+- You will get the message `==== AUTHENTICATING FOR org.freedesktop.systemd1.reload-daemon ===` and that authentication is required to reload the systemd state.  The command line will ask for your password.  Enter your password (keeping in mind you won't see any characters on screen) and hit enter.  You'll get the message `==== AUTHENTICATION COMPLETE ===`.
+
+- Next, you will get the message `==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-unit-files ===` and that authentication is required to reload the systemd state.  The command line will ask for your password.  Enter your password (keeping in mind you won't see any characters on screen) and hit enter.  You'll get the message `==== AUTHENTICATION COMPLETE ===`.
 
 - You can verify the system date and time by running the command `timedatectl`
-
-- After all of these have been run, you will need to reboot the Ubuntu Server.  Type the comman `sudo shutdown –r now` to initiate the reboot.
-
-- Once it has come up, hit Enter and then enter the username, `ubuntu`, and hit Enter.  Then enter your password and hit Enter.
 
 ## Change Hostname
 
