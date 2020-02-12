@@ -10,7 +10,7 @@ If you are doing this using the Mac’s and the Raspberry Pis in the lab, you wi
 
 - Visit the [Install Ubuntu Server on Raspberry Pi 2, 3 or 4 page](https://ubuntu.com/download/iot/raspberry-pi-2-3) 
 
-- Scroll down and under the Raspberry Pi 3 model, click on the button titled “Download 64-bit” for Ubuntu 19.10.  If you purchased your own Rasperry Pi and you chose to purchase a different model (for example the Raspberry Pi 4 is the latest model), then you would want to download the image that matches your model.  For the department's Raspberry Pis, we have the model 3 B+, thus we want the image for the Raspberry Pi 3.
+- Scroll down and under the Raspberry Pi 3 model, click on the button titled “Download 64-bit” for Ubuntu 19.10.  If you purchased your own Raspberry Pi and you chose to purchase a different model (for example the Raspberry Pi 4 is the latest model), then you would want to download the image that matches your model.  For the department's Raspberry Pis, we have the model 3 B+, thus we want the image for the Raspberry Pi 3.
 
 - Make sure you download this to your Downloads folder on the Mac.
 
