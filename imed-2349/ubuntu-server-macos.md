@@ -144,6 +144,18 @@ In this class, after the initial setup, we are going to remote into our Raspberr
 
 - To verify that the SSH server is running, run the command `sudo systemctl status ssh`.  You should see in the output the message `Active: active (running)`.
 
+## Connect to Raspberry Pi using SSH
+
+For the rest of the installation and setup process, you need to remote into your Raspberry Pi using an SSH client.  An SSH client is built into the macOS, so all you need to do is open up the Terminal window.  You do this by going to `Finder -> Applications -> Utilities -> Terminal`.
+
+- In the Terminal window, run the command `ssh ubuntu@IP_ADDRESS` where you will replace the words IP_ADDRESS with the IP address you wrote down earlier and hit Enter.
+
+- The first time you try to connect to your Raspberry Pi remotely via the Terminal, you will get a message that the authenticity of host IP_ADDRESS can't be established and a ECDSA key fingerprint.  It will ask you if you want to continue connecting.  Type in `Yes` and hit Enter.
+
+- This will generate a warning that the IP_ADDRESS (ECSDA) has been permanently added to the list of known hosts and then will ask for your password.  Enter the password for the Ubuntu user on the Raspberry Pi (remember you won't be able to see any characters on screen as you enter the password).
+
+- You know you have been successfully connected to the remote Ubuntu Server When you see the message "Welcome to Ubuntu 19.10" along with additional information.  Your other visual clue that you are successfully connected is you Terminal window now shows the user as ubuntu@raspberrypi-WDD-jdoe (ubuntu@HOSTNAME) instead of username@name_of_computer.  The terminal also changes the color of a remote user to lime green whereas the local user is in white.  Now anything you do in the Terminal window until we exit will be performed on the Ubuntu Server running on the Raspberry Pi instead of on the Mac computer.
+
 ## Install Fail2Ban
 
 Fail2Ban blocks suspicious requests that come from the Internet.  It will block the IP address if there are too many attempts to guess the password.
@@ -188,7 +200,7 @@ Swap is space on a disk that the OS can use when the amount of physical RAM memo
 
 - If there is no output, then you don’t have any swap space enabled and should proceed with the following steps.
 
-- We’ll start by creating the file to be used for swap by running the command `sudo fallocate -l 2G /swapfile`
+- We’ll start by creating the file to be used for swap by running the command `sudo fallocate -l 4G /swapfile`
 
 - Next, we want to set it so only the root user can read and write to the file, so we are going to set the correct permissions by running the command `sudo chmod 600 /swapfile`
 
@@ -207,5 +219,5 @@ Swap is space on a disk that the OS can use when the amount of physical RAM memo
 - You should see something similar to the following (don’t worry if the values in the total column don’t match yours):
 
   `              total        used        free      shared  buff/cache   available`  
-  `Mem:           488M        158M         83M        2.3M        246M        217M`  
-  `Swap:          2.0G        506M        517M                                    `
+  `Mem:          906Mi       193Mi       194Mi        3.0M        518M        688M`  
+  `Swap:         4.0Gi          0B       4.0Gi                                    `
