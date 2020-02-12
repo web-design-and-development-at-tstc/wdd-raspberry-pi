@@ -220,4 +220,4 @@ Swap is space on a disk that the OS can use when the amount of physical RAM memo
 
   `              total        used        free      shared  buff/cache   available`  
   `Mem:          906Mi       193Mi       194Mi        3.0M        518M        688M`  
-  `Swap:         4.0Gi          0B       4.0Gi                                    `
+  `Swap:         4.0Gi          0B        4.0Gi                                    `
