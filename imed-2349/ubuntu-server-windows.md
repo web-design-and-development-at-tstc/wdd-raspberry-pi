@@ -6,11 +6,11 @@ We are going to be installing Ubuntu Server onto your SD card to be the OS for o
 
 ## Download Ubuntu Server for Raspberry Pi
 
-- Visit the [Install Ubuntu Server on Raspberry Pi 2, 3 or 4 page](https://ubuntu.com/download/iot/raspberry-pi-2-3) 
+- Visit the [Install Ubuntu Server on Raspberry Pi 2, 3 or 4 page](https://ubuntu.com/download/iot/raspberry-pi-2-3)
 
-- Scroll down and click on the button titled “64-bit for Raspberry Pi 3 and 4”.
+- Scroll down and under the Raspberry Pi 3 model, click on the button titled “Download 64-bit” for Ubuntu 19.10.  If you purchased your own Raspberry Pi and you chose to purchase a different model (for example the Raspberry Pi 4 is the latest model), then you would want to download the image that matches your model.  For the department's Raspberry Pis, we have the model 3 B+, thus we want the image for the Raspberry Pi 3.
 
-- Make sure you download this to your Downloads folder on the Mac.
+- Make sure you download this to your Downloads folder on the PC.
 
 ## Format the microSD Card
 
@@ -38,7 +38,7 @@ We are going to be installing Ubuntu Server onto your SD card to be the OS for o
 
 - Next, make sure that the drive that is selected is the microSD card that you formatted earlier.
 
-- Once the image and the drive are selected, click the button labeled Flash!  If you get a User Access Control window, click Yes. 
+- Once the image and the drive are selected, click the button labeled Flash!  If you get a User Access Control window, click Yes.
 
 - It will take approximately 2 minutes to flash the microSD card.  You’ll see a progress bar showing the percentage flashed and an ETA.  Then it will validate the flash.  Again, you’ll see a progress bar and an ETA.  If during the flashing or validation process Windows asked if you want to format a disk in a drive, click Cancel.
 
@@ -94,23 +94,73 @@ Before moving on with updating and installing new packages, we need to make sure
 
 - After it has run, type `sudo apt-get dist-upgrade -y` and hit Enter.
 
-- Next, we are going to set it, so our date and time are synchronized as opposed to having to manually set it in the future.  To do this, run the command `sudo apt install chrony` When it is finished, it will tell you how much additional space will be taken up by the install and will ask if you want to continue.  Type `Y` and hit Enter.
+- Next, we are going to set it, so our date and time are synchronized as opposed to having to manually set it in the future.  To do this, run the command `sudo apt install chrony`.
 
-- After it has installed, run the command `systemctl status chronyd`  You should see output that shows that it is active. 
+- After it has installed, run the command `systemctl status chronyd`  You should see output that shows that it is active.
 
-- To enable chrony to run upon boot, run the command `systemctl enable chrony`
+- To enable chrony to run upon boot, run the command `systemctl enable chrony`.
+
+- You will get the message `==== AUTHENTICATING FOR org.freedesktop.systemd1.reload-daemon ===` and that authentication is required to reload the systemd state.  The command line will ask for your password.  Enter your password (keeping in mind you won't see any characters on screen) and hit enter.  You'll get the message `==== AUTHENTICATION COMPLETE ===`.
+
+- Next, you will get the message `==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-unit-files ===` and that authentication is required to reload the systemd state.  The command line will ask for your password.  Enter your password (keeping in mind you won't see any characters on screen) and hit enter.  You'll get the message `==== AUTHENTICATION COMPLETE ===`.
 
 - You can verify the system date and time by running the command `timedatectl`
-
-- After all of these have been run, you will need to reboot the Ubuntu Server.  Type the comman `sudo shutdown –r now` to initiate the reboot.
-
-- Once it has come up, hit Enter and then enter the username, `ubuntu`, and hit Enter.  Then enter your password and hit Enter.
 
 ## Change Hostname
 
 By default, all new Ubuntu Server installations have the same hostname, ubuntu.  To differentiate them on the network, we need to change the hostname.
 
 - Run the command `hostnamectl set-hostname raspberrypi-WDD-jdoe` (where j is the initial of your first name and doe is your last name; so for example my hostname would be `raspberrypi-WDD-dtrower`).  This step requires authentication.  Enter your password for the Ubuntu user and hit enter.  You should see the message `==== AUTHENTICATION COMPLETE ====`.
+
+## Get IP Address
+
+Next, we need to get the IP address for our Raspberry Pi so we can remote into the Raspberry Pi.
+
+- Before you can get the IP address, you need to install net-tools.  To do this, run the command `sudo apt install net-tools`.
+
+- Once it has installed, type the command `ifconfig` and hit Enter.
+
+- This will print a bunch of information to the command line.  To find your IP address, look for the inet address under eth0.  Make sure you write this IP address down because you will need it to connect to the Raspberry Pi from another computer.
+
+## Verify SSH Status
+
+In this class, after the initial setup, we are going to remote into our Raspberry Pi.  You will only be able to remote into the Raspberry Pi while you are on the same network as the Raspberry Pi.
+
+- To verify that the SSH server is running, run the command `sudo systemctl status ssh`.  You should see in the output the message `Active: active (running)`.
+
+## Connect to Raspberry Pi using SSH
+
+For the rest of the installation and setup process, you need to remote into your Raspberry Pi using an SSH client.  Windows doesn't have a native SSH client, so you will need to install PuTTY, a popular third-party, open-source SSH client.
+
+- Visit the [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) download page and select the installer that matches the version of Windows you are running, either 32-bit or 64-bit.
+
+- Once you have download the .msi file, open it.  You will get a prompt warning that it is an executable file and whether you want to run it.  Click OK.
+
+- This will cause the setup window to open.  Click Next to continue the Setup Wizard.
+
+- The next screen will be where to install the application.  Leave it in it's default location and click Next.
+
+- On the next screen, it will let you choose what features to install.  If you want to have a shortcut on your desktop for the application, click on the drop down icon next to "Add shortcut to PuTTY on the desktop" and select the option "Will be installed on local hard drive".
+
+- Once you have set the features you want to install, click on Install.  You may be asked to enter your administrator password.  If so, enter the password and click Ok.
+
+- After it has finished installing, you can choose whether to have the Setup Wizard open the Readme file.  You can uncheck the checkbox so the Readme file isn't opened and then click Finish.
+
+- Once you have PuTTY installed, open up the application.  You'll see a screen with form fields.
+
+- In the field called Host Name or IP Address, enter the IP address for your Raspberry Pi.
+
+- Make sure the radio button for SSH is selected and leave the port set to 22, then click Open.
+
+- If this is the first time you have connected remotely to the Raspberry Pi, you will get a Security Alert that the server's host key is not cached in the registry.  Click Yes to add the key to the cache permanently.
+
+- You should have a terminal window on your screen asking you to login as.  Here you enter your username for the Ubuntu Server which is ubuntu and hit Enter.
+
+- Next it will ask for the password for the ubuntu@IP_ADDRESS user (IP_ADDRESS is the IP address for your Raspberry Pi).  Enter your password for the ubuntu user for the Ubuntu Server and hit enter.  Remember you want see any characters on screen as you enter the password.
+
+- You know you have been successfully connected to the remote Ubuntu Server When you see the message "Welcome to Ubuntu 19.10" along with additional information.
+
+- As a note, to end your PuTTY SSH connection, just type `exit` and hit Enter.
 
 ## Install Fail2Ban
 
@@ -129,10 +179,10 @@ Fail2Ban blocks suspicious requests that come from the Internet.  It will block 
   `[DEFAULT]`  
   `# Ban hosts for one hour:`  
   `bantime = 3600`  
-  
+
   `# Override /etc/fail2ban/jail.d/00-firewalld.conf:`  
   `banaction = iptables-multiport`  
-  
+
   `[sshd]`  
   `enabled = true`
 
@@ -156,7 +206,7 @@ Swap is space on a disk that the OS can use when the amount of physical RAM memo
 
 - If there is no output, then you don’t have any swap space enabled and should proceed with the following steps.
 
-- We’ll start by creating the file to be used for swap by running the command `sudo fallocate -l 2G /swapfile`
+- We’ll start by creating the file to be used for swap by running the command `sudo fallocate -l 4G /swapfile`
 
 - Next, we want to set it so only the root user can read and write to the file, so we are going to set the correct permissions by running the command `sudo chmod 600 /swapfile`
 
@@ -174,20 +224,6 @@ Swap is space on a disk that the OS can use when the amount of physical RAM memo
 
 - You should see something similar to the following (don’t worry if the values in the total column don’t match yours):
 
-  `              total        used        free      shared  buff/cache   available`  
-  `Mem:           488M        158M         83M        2.3M        246M        217M`  
-  `Swap:          2.0G        506M        517M`
-
-## Install an Ubuntu GUI Desktop
-
-By default, the Ubuntu Server is a command line only interface.  However, we can install a GUI desktop to use.  
-
-- To do this, from the Command Line on Ubuntu run the following command: `sudo apt-get install xubuntu-desktop`
-
-- You will see a wall of text scroll by on the screen.  When it is finished, it will tell you how much additional space will be taken up by the install and will ask if you want to continue.  Type `Y` and hit Enter.
-
-- This is going to take an extremely long time to run. Early on in the installation process there may be a couple of prompts that you have to respond to, but for the most part, this process just needs time to run.  I would work on other work for this class, while it is running.
-
-- Once it has finished installing, you will need to reboot the Ubuntu Server by running the command `sudo shutdown –r now`
-
-- When Ubuntu Server finished rebooting, it will bootup to the login screen for the Xubuntu GUI desktop.  Enter your password and then hit Enter.
+  `              total        used        free      shared  buff/cache   available`  
+  `Mem:          906Mi       193Mi       194Mi        3.0M        518M        688M`  
+  `Swap:         4.0Gi           0B       4.0Gi                                    `
