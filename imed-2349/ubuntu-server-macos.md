@@ -8,7 +8,7 @@ If you are doing this using the Mac’s and the Raspberry Pis in the lab, you wi
 
 ## Download Ubuntu Server for Raspberry Pi
 
-- Visit the [Install Ubuntu Server on Raspberry Pi 2, 3 or 4 page](https://ubuntu.com/download/iot/raspberry-pi-2-3) 
+- Visit the [Install Ubuntu Server on Raspberry Pi 2, 3 or 4 page](https://ubuntu.com/download/iot/raspberry-pi-2-3)
 
 - Scroll down and under the Raspberry Pi 3 model, click on the button titled “Download 64-bit” for Ubuntu 19.10.  If you purchased your own Raspberry Pi and you chose to purchase a different model (for example the Raspberry Pi 4 is the latest model), then you would want to download the image that matches your model.  For the department's Raspberry Pis, we have the model 3 B+, thus we want the image for the Raspberry Pi 3.
 
@@ -112,7 +112,7 @@ Before moving on with updating and installing new packages, we need to make sure
 
 - Next, we are going to set it, so our date and time are synchronized as opposed to having to manually set it in the future.  To do this, run the command `sudo apt install chrony`.
 
-- After it has installed, run the command `systemctl status chronyd`  You should see output that shows that it is active. 
+- After it has installed, run the command `systemctl status chronyd`  You should see output that shows that it is active.
 
 - To enable chrony to run upon boot, run the command `systemctl enable chrony`.
 
@@ -173,10 +173,10 @@ Fail2Ban blocks suspicious requests that come from the Internet.  It will block 
   `[DEFAULT]`  
   `# Ban hosts for one hour:`  
   `bantime = 3600`  
-  
+
   `# Override /etc/fail2ban/jail.d/00-firewalld.conf:`  
   `banaction = iptables-multiport`  
-  
+
   `[sshd]`  
   `enabled = true`
 
@@ -221,3 +221,19 @@ Swap is space on a disk that the OS can use when the amount of physical RAM memo
   `              total        used        free      shared  buff/cache   available`  
   `Mem:          906Mi       193Mi       194Mi        3.0M        518M        688M`  
   `Swap:         4.0Gi           0B       4.0Gi                                    `
+
+## Configure Firewall
+
+For added security, it is recommended that you configure a firewall on your server.
+
+- Before we enable it, we are going to add a rule for SSH since we are configuring our server remotely, we don't want to get locked out when we enable the firewall.  Run the command `sudo ufw allow OpenSSH`.  You should get the output:
+  `Rules updated`
+  `Rules updated (v6)`
+
+- If you got the message that rules updated, then enable the firewall.  To do this, run the command: `sudo ufw enable`.
+
+- The Terminal will display the message "Command may disrupt existing ssh connections. Proceed with operation (y|n)?"  Type `Y` and hit Enter.
+
+- You should get the message, "Firewall is active and enabled on system startup".
+
+- You can check the current status of your firewall by running the command `sudo ufw status`.

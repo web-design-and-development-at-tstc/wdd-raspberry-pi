@@ -227,3 +227,18 @@ Swap is space on a disk that the OS can use when the amount of physical RAM memo
   `              total        used        free      shared  buff/cache   available`  
   `Mem:          906Mi       193Mi       194Mi        3.0M        518M        688M`  
   `Swap:         4.0Gi           0B       4.0Gi                                    `
+
+## Configure Firewall
+
+For added security, it is recommended that you configure a firewall on your server.
+- Before we enable it, we are going to add a rule for SSH since we are configuring our server remotely, we don't want to get locked out when we enable the firewall.  Run the command `sudo ufw allow in "Apache Full"`.  You should get the output:
+  `Rules updated`
+  `Rules updated (v6)`
+
+- If you got the message that rules updated, then enable the firewall.  To do this, run the command: `sudo ufw enable`.
+
+- The PuTTY terminal will display the message "Command may disrupt existing ssh connections. Proceed with operation (y|n)?"  Type `Y` and hit Enter.
+
+- You should get the message, "Firewall is active and enabled on system startup".
+
+- You can check the current status of your firewall by running the command `sudo ufw status`.
