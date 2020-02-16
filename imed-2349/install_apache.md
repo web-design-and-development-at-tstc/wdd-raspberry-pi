@@ -6,12 +6,6 @@
 
 - It will take a few minutes for everything to install.
 
-## Verify Apache Installation
-
-To verify Apache was installed correctly, open up a web browser on your Raspberry Pi and type in the address bar the IP address for your Raspberry Pi.  You should see a page labeled “Apache2 Ubuntu Default Page” as seen in the image below.  
-
-![Default screen for Apache](http://inspiringweb.org/moodle/imed2349/apache_default_page.png)
-
 ## Update Firewall Configuration
 
 Since we have a firewall configured, we need to configure the firewall to allow connections to Apache.
@@ -21,6 +15,12 @@ Since we have a firewall configured, we need to configure the firewall to allow 
   `Rules updated (v6)`
 
   - You can check the current status of your firewall by running the command `sudo ufw status`.
+
+## Verify Apache Installation
+
+To verify Apache was installed correctly, open up a web browser on your Raspberry Pi and type in the address bar the IP address for your Raspberry Pi.  You should see a page labeled “Apache2 Ubuntu Default Page” as seen in the image below.  
+
+![Default screen for Apache](http://inspiringweb.org/moodle/imed2349/apache_default_page.png)
  
 ## Basic Apache Service Controls
 
