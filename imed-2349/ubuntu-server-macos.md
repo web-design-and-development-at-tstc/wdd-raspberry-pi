@@ -200,7 +200,9 @@ Swap is space on a disk that the OS can use when the amount of physical RAM memo
 
 - If there is no output, then you don’t have any swap space enabled and should proceed with the following steps.
 
-- We’ll start by creating the file to be used for swap by running the command `sudo fallocate -l 4G /swapfile`
+- We’ll start by creating the file to be used for swap by running the command `sudo fallocate -l 4G /swapfile`.  You should get results that look similar to:
+  `Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)`
+  `no label, UUID=de269b7b-93fe-4c99-810c-4f8aa85ba9cb`
 
 - Next, we want to set it so only the root user can read and write to the file, so we are going to set the correct permissions by running the command `sudo chmod 600 /swapfile`
 
