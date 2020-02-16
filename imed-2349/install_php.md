@@ -37,7 +37,7 @@
 
 - Press Ctrl+W and type `max_execution_time`.  Then press enter.  This will go to the place in the file where this variable is set.  Change it's value to `600`.
 
-- Press Ctrl+W and type `max_input_vars`.  Then press enter.  This will go to the place in the file where this variable is set.  Change it's value to `3000`.
+- Press Ctrl+W and type `max_input_vars`.  Then press enter.  This will go to the place in the file where this variable is set.  Remove the semi-colon (`;`) at the start of the line and change it's value to `3000`.
 
 - Press Ctrl+W and type `max_input_time`.  Then press enter.  This will go to the place in the file where this variable is set.  Change it's value to `1000`.
 
