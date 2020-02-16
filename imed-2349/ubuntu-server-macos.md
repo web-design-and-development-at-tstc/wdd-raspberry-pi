@@ -64,7 +64,7 @@ If you are doing this using the Mac’s and the Raspberry Pis in the lab, you wi
 
 - Insert the SD Card you’ve just flashed into the micro SD card slot located on the underside of the Raspberry Pi board.
 
-- Plugin the power cable, an HDMI monitor, a mouse, a keyboard, and for the initial setup, an Ethernet cable.
+- Plugin the power cable, an HDMI monitor, a mouse, a keyboard, and an Ethernet cable.
 
 - Flick the switch located on the power cable attached to the Raspberry Pi and this will turn the Raspberry Pi on.
 
