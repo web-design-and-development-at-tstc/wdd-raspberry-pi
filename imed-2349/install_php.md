@@ -17,9 +17,10 @@
 - When it has finished running, to verify that the installation was successful, run the command `php -v`.
 
 - If PHP was successfully installed, you will see output similar to:
-  `PHP 7.4.2 (cli) (built: Feb  5 2020 16:50:55) ( NTS )`
-  `Copyright (c) The PHP Group`
-  `Zend Engine v3.4.0, Copyright (c) Zend Technologies`
+
+  `PHP 7.4.2 (cli) (built: Feb  5 2020 16:50:55) ( NTS )`  
+  `Copyright (c) The PHP Group`  
+  `Zend Engine v3.4.0, Copyright (c) Zend Technologies`  
   `    with Zend OPcache v7.4.2, Copyright (c), by Zend Technologies`
 
 - Next, run the command `sudo apt install php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring php7.4-opcache php7.4-soap php7.4-zip php7.4-intl`. After it has determined what all will be installed, it will ask if you want to continue.  Type `Y` and hit Enter.
