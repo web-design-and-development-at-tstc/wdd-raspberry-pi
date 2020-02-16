@@ -24,7 +24,7 @@
 
 - The next question is related to using the root user remotely. Type `Y` and hit Enter.
 
-- Next it asks if you want to remove the test database. You would want to do this for a production environment, but for us we’ll keep it. Type `N` and hit Enter.
+- Next it asks if you want to remove the test database.  Type `Y` and hit Enter.
 
 - The next question asks if you want to reload the privileges database. Type `Y` and hit Enter.
 
