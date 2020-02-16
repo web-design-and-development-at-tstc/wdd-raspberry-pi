@@ -234,8 +234,10 @@ Swap is space on a disk that the OS can use when the amount of physical RAM memo
 ## Configure Firewall
 
 For added security, it is recommended that you configure a firewall on your server.
-- Before we enable it, we are going to add a rule for SSH since we are configuring our server remotely, we don't want to get locked out when we enable the firewall.  Run the command `sudo ufw allow in "Apache Full"`.  You should get the output:
-  `Rules updated`
+
+- Before we enable it, we are going to add a rule for SSH since we are configuring our server remotely, we don't want to get locked out when we enable the firewall.  Run the command `sudo ufw allow OpenSSH`.  You should get the output:
+
+  `Rules updated`  
   `Rules updated (v6)`
 
 - If you got the message that rules updated, then enable the firewall.  To do this, run the command: `sudo ufw enable`.
