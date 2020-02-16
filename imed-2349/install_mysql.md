@@ -30,6 +30,6 @@
 
 - Next, type `sudo mysql` and hit enter.
 
-- Then type in the command `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'WDDrules19';` and hit Enter.
+- Then type in the command `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '!WDDrules19';` and hit Enter.
 
 - After it has run, type `Exit` and hit Enter.
