@@ -12,7 +12,7 @@
 
 - It will ask if you want to use the VALIDATE PASSWORD COMPONENT.  Type 'Y' and hit enter.
 
-- For our purposes, we are going to use the low-level security. In production you would want to go with medium or high security. Type `0` (zero) and hit Enter.
+- For our purposes, we are going to use the strong-level security. In development, you could get away with low or medium level security, but it's best to always be in the habit to use the strongest security available. Type `2` and hit Enter.
 
 - Enter a password for the root account for MySQL. In class we have been using the password `WDDrules19` so I would use that here. You will need to enter the password and hit enter. Please note that you won’t see anything on screen.
 
