@@ -210,7 +210,9 @@ Swap is space on a disk that the OS can use when the amount of physical RAM memo
 
 - Next, we want to set it so only the root user can read and write to the file, so we are going to set the correct permissions by running the command `sudo chmod 600 /swapfile`
 
-- Then we need to set up a Linux swap area on the file by running the command `sudo mkswap /swapfile`
+- Then we need to set up a Linux swap area on the file by running the command `sudo mkswap /swapfile`.  You should get results that look similar to:
+  `Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)`
+  `no label, UUID=de269b7b-93fe-4c99-810c-4f8aa85ba9cb`
 
 - Next, we’ll activate the swap file by running the command `sudo swapon /swapfile`
 
