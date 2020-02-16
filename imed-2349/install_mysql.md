@@ -12,9 +12,9 @@
 
 - It will ask if you want to use the VALIDATE PASSWORD COMPONENT.  Type 'Y' and hit enter.
 
-- For our purposes, we are going to use the strong-level security. In development, you could get away with low or medium level security, but it's best to always be in the habit to use the strongest security available. Type `2` and hit Enter.
+- For our purposes, we are going to use the strong-level password policy. In development, you could get away with low or medium level for a password policy, but it's best to always be in the habit to use the strongest security available. Type `2` and hit Enter.
 
-- Enter a password for the root account for MySQL. In class we have been using the password `WDDrules19` so I would use that here. You will need to enter the password and hit enter. Please note that you won’t see anything on screen.
+- Enter a password for the root account for MySQL. Because we are using the strong level password policy we need to use special characters in addition to numbers and mixed case letters.  So we are going to modify the password that we have been using in class by adding and exclamation point.  That results in the password being `!WDDrules19` so I would use that here. You will need to enter the password and hit enter. Please note that you won’t see anything on screen.
 
 - It will then ask you to re-enter the password. Enter the password a second time and hit enter. Just like the first time you entered the password, you will not see anything happening on screen.
 
