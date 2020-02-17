@@ -52,11 +52,10 @@ If you are doing this using the Mac’s and the Raspberry Pis in the lab, you wi
 
 - It will ask for the administrator password.  Enter this and hit enter.
 
-- It will take approximately 10 minutes to run and you won’t see any activity in the Terminal window during this time.  It is finished when you see a message similar to:
-
-  `0+36988 records in`  
-  `0+36988 records out`  
-  `2422361088 bytes transferred in 637.409123 secs (3800324 bytes/sec)`
+- It will take approximately 10 minutes to run and you won’t see any activity in the Terminal window during this time.  It is finished when you see a message similar to:  
+  `0+36988 records in  
+  0+36988 records out  
+  2422361088 bytes transferred in 637.409123 secs (3800324 bytes/sec)`
 
 - Now you can eject your microSD card.
 
@@ -170,17 +169,16 @@ Fail2Ban blocks suspicious requests that come from the Internet.  It will block 
 
 - After it has finished running, we need to set some settings for this.  To begin we are going to create a new file.  Type the command `sudo nano /etc/fail2ban/jail.local` and hit Enter.
 
-- In the editor, you will need to enter the following information:
+- In the editor, you will need to enter the following information:  
+  `[DEFAULT]  
+  # Ban hosts for one hour:  
+  bantime = 3600  
 
-  `[DEFAULT]`  
-  `# Ban hosts for one hour:`  
-  `bantime = 3600`  
+  # Override /etc/fail2ban/jail.d/00-firewalld.conf:  
+  banaction = iptables-multiport  
 
-  `# Override /etc/fail2ban/jail.d/00-firewalld.conf:`  
-  `banaction = iptables-multiport`  
-
-  `[sshd]`  
-  `enabled = true`
+  [sshd]  
+  enabled = true`
 
 - To exit the nano editor and save this file, press CTRL+X to exit, type `Y` to save, and Enter to confirm the file name.
 
@@ -188,11 +186,10 @@ Fail2Ban blocks suspicious requests that come from the Internet.  It will block 
 
 - To verify that the service is running, we can use the fail2ban-client.  Type the command `sudo fail2ban-client status` and hit Enter.
 
-- You should see the output:
-
-  `Status`  
-  `|- Number of jail:      1`  
-  `` `- Jail list:   sshd``
+- You should see the output:  
+  `Status  
+  |- Number of jail:      1  
+  ` `- Jail list:   sshd`
 
 ## Create a Swap File
 
@@ -206,10 +203,9 @@ Swap is space on a disk that the OS can use when the amount of physical RAM memo
 
 - Next, we want to set it so only the root user can read and write to the file, so we are going to set the correct permissions by running the command `sudo chmod 600 /swapfile`
 
-- Then we need to set up a Linux swap area on the file by running the command `sudo mkswap /swapfile`.  You should get results that look similar to:
-
-  `Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)`  
-  `no label, UUID=de269b7b-93fe-4c99-810c-4f8aa85ba9cb`
+- Then we need to set up a Linux swap area on the file by running the command `sudo mkswap /swapfile`.  You should get results that look similar to:  
+  `Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)  
+  no label, UUID=de269b7b-93fe-4c99-810c-4f8aa85ba9cb`
 
 - Next, we’ll activate the swap file by running the command `sudo swapon /swapfile`
 
@@ -223,18 +219,17 @@ Swap is space on a disk that the OS can use when the amount of physical RAM memo
 
 - You should see something similar to the following (don’t worry if the values in the total column don’t match yours):
 
-  `              total        used        free      shared  buff/cache   available`  
-  `Mem:          906Mi       193Mi       194Mi        3.0M        518M        688M`  
-  `Swap:         4.0Gi           0B       4.0Gi                                    `
+  `              total        used        free      shared  buff/cache   available  
+  Mem:          906Mi       193Mi       194Mi        3.0M        518M        688M  
+  Swap:         4.0Gi           0B       4.0Gi                                    `
 
 ## Configure Firewall
 
 For added security, it is recommended that you configure a firewall on your server.
 
-- Before we enable it, we are going to add a rule for SSH since we are configuring our server remotely, we don't want to get locked out when we enable the firewall.  Run the command `sudo ufw allow OpenSSH`.  You should get the output:
-
-  `Rules updated`  
-  `Rules updated (v6)`
+- Before we enable it, we are going to add a rule for SSH since we are configuring our server remotely, we don't want to get locked out when we enable the firewall.  Run the command `sudo ufw allow OpenSSH`.  You should get the output:  
+  `Rules updated  
+  Rules updated (v6)`
 
 - If you got the message that rules updated, then enable the firewall.  To do this, run the command: `sudo ufw enable`.
 
