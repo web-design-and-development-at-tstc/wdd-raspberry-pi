@@ -110,7 +110,7 @@ Before moving on with updating and installing new packages, we need to make sure
 
 - After it has run, type `sudo apt-get dist-upgrade -y` and hit Enter.
 
-- Next, we are going to set it, so our date and time are synchronized as opposed to having to manually set it in the future.  To do this, run the command `sudo apt install chrony`.
+- Next, we are going to set it, so our date and time are synchronized as opposed to having to manually set it in the future.  To do this, run the command `sudo apt install chrony`.  When it asks to confirm, type `Y` and hit Enter.
 
 - After it has installed, run the command `systemctl status chronyd`  You should see output that shows that it is active.
 
