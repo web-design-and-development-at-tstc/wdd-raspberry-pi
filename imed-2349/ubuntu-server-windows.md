@@ -102,7 +102,11 @@ Before moving on with updating and installing new packages, we need to make sure
 
 - You will get the message `==== AUTHENTICATING FOR org.freedesktop.systemd1.reload-daemon ===` and that authentication is required to reload the systemd state.  The command line will ask for your password.  Enter your password (keeping in mind you won't see any characters on screen) and hit enter.  You'll get the message `==== AUTHENTICATION COMPLETE ===`.
 
+- You will get a second message `==== AUTHENTICATING FOR org.freedesktop.systemd1.reload-daemon ===` and that authentication is required to reload the systemd state.  The command line will ask for your password.  Enter your password (keeping in mind you won't see any characters on screen) and hit enter.  You'll get the message `==== AUTHENTICATION COMPLETE ===`.
+
 - Next, you will get the message `==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-unit-files ===` and that authentication is required to reload the systemd state.  The command line will ask for your password.  Enter your password (keeping in mind you won't see any characters on screen) and hit enter.  You'll get the message `==== AUTHENTICATION COMPLETE ===`.
+
+- You will get a final message `==== AUTHENTICATING FOR org.freedesktop.systemd1.reload-daemon ===` and that authentication is required to reload the systemd state.  The command line will ask for your password.  Enter your password (keeping in mind you won't see any characters on screen) and hit enter.  You'll get the message `==== AUTHENTICATION COMPLETE ===`.
 
 - You can verify the system date and time by running the command `timedatectl`
 
