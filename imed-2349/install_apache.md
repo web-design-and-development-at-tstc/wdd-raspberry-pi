@@ -14,7 +14,7 @@ Since we have a firewall configured, we need to configure the firewall to allow 
   `Rules updated`
   `Rules updated (v6)`
 
-  - You can check the current status of your firewall by running the command `sudo ufw status`.
+- You can check the current status of your firewall by running the command `sudo ufw status`.
 
 ## Verify Apache Installation
 
