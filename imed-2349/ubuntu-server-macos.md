@@ -136,11 +136,9 @@ By default, all new Ubuntu Server installations have the same hostname, ubuntu. 
 
 Next, we need to get the IP address for our Raspberry Pi so we can remote into the Raspberry Pi.
 
-- Before you can get the IP address, you need to install net-tools.  To do this, run the command `sudo apt install net-tools`.
+- To find the IP address for your Raspberry Pi, type the command `ifconfig` and hit Enter.
 
-- Once it has installed, type the command `ifconfig` and hit Enter.
-
-- This will print a bunch of information to the command line.  To find your IP address, look for the inet address under eth0.  Make sure you write this IP address down because you will need it to connect to the Raspberry Pi from another computer.
+- This will print a bunch of information to the command line.  To identify your IP address, look for the inet address under eth0.  Make sure you write this IP address down because you will need it to connect to the Raspberry Pi from another computer.
 
 ## Verify SSH Status
 
