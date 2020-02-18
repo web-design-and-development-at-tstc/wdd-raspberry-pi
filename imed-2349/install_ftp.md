@@ -9,12 +9,12 @@ We are going to use the popular FTP server vsftpd (Very Secure File Transfer Pro
 - Once it has installed, we can check the status to make sure vsftpd is running by running the command `sudo service vsftpd status`.  You should see a message similar to the one below if it is running correctly:
 
   `● vsftpd.service - vsftpd FTP server`  
-  `   Loaded: loaded (/lib/systemd/system/vsftpd.service; enabled; vendor preset: enabled)`  
-  `   Active: active (running) since Mon 2020-02-17 17:14:26 CST; 31s ago`  
-  ` Main PID: 6924 (vsftpd)`  
-  `    Tasks: 1 (limit: 4440)`  
-  `   CGroup: /system.slice/vsftpd.service`  
-  `           └─6924 /usr/sbin/vsftpd /etc/vsftpd.conf`  
+  `   Loaded: loaded (/lib/systemd/system/vsftpd.service; enabled; vendor preset: enabled)`  
+  `   Active: active (running) since Mon 2020-02-17 17:14:26 CST; 31s ago`  
+  ` Main PID: 6924 (vsftpd)`  
+  `   Tasks: 1 (limit: 4440)`  
+  `   CGroup: /system.slice/vsftpd.service`  
+  `           └─6924 /usr/sbin/vsftpd /etc/vsftpd.conf`  
 
   `Feb 17 17:14:26 raspberrypi-WDD-dtrower systemd[1]: Starting vsftpd FTP server...`  
   `Feb 17 17:14:26 raspberrypi-WDD-dtrower systemd[1]: Started vsftpd FTP server.`
