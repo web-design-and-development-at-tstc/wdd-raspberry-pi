@@ -42,20 +42,20 @@ Since we enabled the ufw firewall, we need to add some additional rules to open 
 - You can check the current status of your firewall by running the command `sudo ufw status`.  Provided you have been adding the rules as we have gone along, you should get the following status and list of active rules:  
   `Status: active`  
 
-  `To                         Action      From`  
-  `--                         ------      ----`  
-  `OpenSSH                    ALLOW       Anywhere`  
-  `Apache Full                ALLOW       Anywhere`  
-  `20/tcp                     ALLOW       Anywhere`  
-  `21/tcp                     ALLOW       Anywhere`  
-  `40000:50000/tcp            ALLOW       Anywhere`  
-  `990/tcp                    ALLOW       Anywhere`  
-  `OpenSSH (v6)               ALLOW       Anywhere (v6)`  
-  `Apache Full (v6)           ALLOW       Anywhere (v6)`  
-  `20/tcp (v6)                ALLOW       Anywhere (v6)`  
-  `21/tcp (v6)                ALLOW       Anywhere (v6)`  
-  `40000:50000/tcp (v6)       ALLOW       Anywhere (v6)`  
-  `990/tcp (v6)               ALLOW       Anywhere (v6)`
+  `To                         Action      From`  
+  `--                         ------      ----`  
+  `OpenSSH                    ALLOW       Anywhere`  
+  `Apache Full                ALLOW       Anywhere`  
+  `20/tcp                     ALLOW       Anywhere`  
+  `21/tcp                     ALLOW       Anywhere`  
+  `40000:50000/tcp            ALLOW       Anywhere`  
+  `990/tcp                    ALLOW       Anywhere`  
+  `OpenSSH (v6)               ALLOW       Anywhere (v6)`  
+  `Apache Full (v6)           ALLOW       Anywhere (v6)`  
+  `20/tcp (v6)                ALLOW       Anywhere (v6)`  
+  `21/tcp (v6)                ALLOW       Anywhere (v6)`  
+  `40000:50000/tcp (v6)       ALLOW       Anywhere (v6)`  
+  `990/tcp (v6)               ALLOW       Anywhere (v6)`
 
 ## Create FTP User
 
