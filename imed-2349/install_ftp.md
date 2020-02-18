@@ -9,9 +9,9 @@ We are going to use the popular FTP server vsftpd (Very Secure File Transfer Pro
 - Once it has installed, we can check the status to make sure vsftpd is running by running the command `sudo service vsftpd status`.  You should see a message similar to the one below if it is running correctly:
 
   `● vsftpd.service - vsftpd FTP server`  
-     `Loaded: loaded (/lib/systemd/system/vsftpd.service; enabled; vendor preset: enabled)`  
-     `Active: active (running) since Mon 2020-02-17 17:14:26 CST; 31s ago`  
-   `Main PID: 6924 (vsftpd)`  
+  `   Loaded: loaded (/lib/systemd/system/vsftpd.service; enabled; vendor preset: enabled)`  
+  `   Active: active (running) since Mon 2020-02-17 17:14:26 CST; 31s ago`  
+  ` Main PID: 6924 (vsftpd)`  
   `    Tasks: 1 (limit: 4440)`  
   `   CGroup: /system.slice/vsftpd.service`  
   `           └─6924 /usr/sbin/vsftpd /etc/vsftpd.conf`  
@@ -109,7 +109,7 @@ The next two directives don't exist in the file so we are going to have to add t
 
 To make sure that our FTP server is working correctly, we are going to test vsftpd to see if we can log in with the user we created earlier.
 
-- Open up FileZilla and in the Quickconnect bar, enter your server's IP address for the Host, `ftpuser` for the username, and, if you used the password specified, `WDDrules20` for the password.  Then click __Quickconnect__.
+- Open up FileZilla and in the Quickconnect bar, enter your server's IP address for the Host, `ftpuser` for the username, and `WDDrules20` for the password (if you didn't use this one, then you should use the password you set when you created the `ftpuser` account).  Then click __Quickconnect__.
 
 - You'll get a dialog box that says "This server does not support FTP over TLS.  If you continue, your password and files will be sent in clear over the internet."  For now, click __OK__.  In the next section, we'll set up TLS on our server.
 
@@ -130,15 +130,15 @@ If you recall when you first logged into FileZilla, you received a dialog box wa
 -  First, we'll want to enable SSL. Press Ctrl+W and type `ssl_enable`.  Then press Enter.  This will go to the place in the file where this directive is set.  Set the variable to `YES` instead of the default `NO`.
 
 - Beneath that variable add the following directives:  
-  `rsa_cert_file=/etc/ssl/private/vsftpd.pem`
-  `rsa_private_key_file=/etc/ssl/private/vsftpd.pem`
-  `allow_anon_ssl=NO`
-  `force_local_data_ssl=YES`
-  `force_local_logins_ssl=YES`
-  `ssl_tlsv1=YES`
-  `ssl_sslv2=NO`
-  `ssl_sslv3=NO`
-  `require_ssl_reuse=NO`
+  `rsa_cert_file=/etc/ssl/private/vsftpd.pem`  
+  `rsa_private_key_file=/etc/ssl/private/vsftpd.pem`  
+  `allow_anon_ssl=NO`  
+  `force_local_data_ssl=YES`  
+  `force_local_logins_ssl=YES`  
+  `ssl_tlsv1=YES`  
+  `ssl_sslv2=NO`  
+  `ssl_sslv3=NO`  
+  `require_ssl_reuse=NO`  
   `ssl_ciphers=HIGH`
 
 - Save the file and exit by pressing Ctrl+X, then type `Y`, and hit Enter.
@@ -149,7 +149,7 @@ If you recall when you first logged into FileZilla, you received a dialog box wa
 
 To make sure that our FTP server now utilizes FTP over SSL/TLS, we are going to log in with the user we created earlier.
 
-- Open up FileZilla and in the Quickconnect bar, enter your server's IP address for the Host, `ftpuser` for the username, and, if you used the password specified, `WDDrules20` for the password.  Then click __Quickconnect__.
+- Open up FileZilla and in the Quickconnect bar, enter your server's IP address for the Host, `ftpuser` for the username, and `WDDrules20` for the password (if you didn't use this one, then you should use the password you set when you created the `ftpuser` account).
 
 - You should see a dialog box similar to the one below saying the server's certificate is unknown.  Near the bottom, there is a checkbox to "Always trust certificate in future sessions."  Go ahead and check this checkbox and then click __OK__.
 
