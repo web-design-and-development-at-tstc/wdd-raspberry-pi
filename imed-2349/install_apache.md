@@ -10,8 +10,8 @@
 
 Since we have a firewall configured, we need to configure the firewall to allow connections to Apache.
 
-- To add the firewall rules for Apache, run the command `sudo ufw allow in "Apache Full"`.  You should get the output:
-  `Rules updated`
+- To add the firewall rules for Apache, run the command `sudo ufw allow in "Apache Full"`.  You should get the output:  
+  `Rules updated`  
   `Rules updated (v6)`
 
 - You can check the current status of your firewall by running the command `sudo ufw status`.
