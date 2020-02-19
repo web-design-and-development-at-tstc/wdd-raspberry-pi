@@ -48,7 +48,7 @@ If you are doing this using the Mac’s and the Raspberry Pis in the lab, you wi
 
 - If successful, you’ll see a message similar to `Unmount of all volumes on disk2` was successful
 
-- Next, we are going to copy the image to the microSD card.  To do this you either have to be logged in as an administrator or be using a user account that has sudo rights.  To copy the image to your microSD card, then you need to run the command: `sudo sh -c ‘xzcat ~/Downloads/ubuntu-19.10.1-preinstalled-server-arm64+raspi3.img.xz | sudo dd of=/dev/disk2 bs=32m’`
+- Next, we are going to copy the image to the microSD card.  To do this you either have to be logged in as an administrator or be using a user account that has sudo rights.  To copy the image to your microSD card, then you need to run the command: `sudo sh -c ‘xzcat ~/Downloads/ubuntu-18.04.4-preinstalled-server-arm64+raspi3.img.xz | sudo dd of=/dev/disk2 bs=32m’`
 
 - It will ask for the administrator password.  Enter this and hit enter.
 
